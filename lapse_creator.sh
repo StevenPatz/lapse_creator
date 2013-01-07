@@ -1,6 +1,7 @@
 if [ $# != 0 ];  then
 for x in $(seq 1 $#)
 do
+	echo Creating Directories. . . 
 	mkdir -p temp_$x
 done
 
@@ -8,10 +9,10 @@ done
 
 date=`date +%Y%m%d` 
 #date="2012-07-27" 
-#mkdir temp1
-#mkdir temp2
-##mkdir temp3
-#ffmpeg -i $1 -r 5 -f image2 temp1/%05d.png &
+
+
+ffmpeg -loglevel panic -i $1 -r 5 -f image2 temp_1/%05d.png 
+ffmpeg -loglevel panic -i temp_1/%05d.png -sameq roadtrip_to_$4_lapse_$date.mp4 
 #ffmpeg -i $2 -r 5 -f image2 temp2/%05d.png 
 #ffmpeg -i $3 -r 5 -f image2 temp3/%05d.png &
 #ffmpeg -i temp1/%05d.png -sameq roadtrip_to_$4_lapse_$date.mp4 
